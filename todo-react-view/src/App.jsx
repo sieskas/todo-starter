@@ -4,7 +4,7 @@ import {Button, Col, Container, Form, ListGroup, Row} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //const BASE_PATH = '/local_server/api/v1';
-const BASE_PATH = "http://localhost:3000/api/v1"
+const BASE_PATH = "/api/v1"
 function App() {
     const [newTodo, setNewTodo] = useState('');
     const [todos, setTodos] = useState([]);
