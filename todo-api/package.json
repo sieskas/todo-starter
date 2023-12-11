@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "elasticsearch": "^15.4.1",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "pg": "^7.8.0",
     "redis": "^2.8.0"

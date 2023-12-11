@@ -4,10 +4,12 @@ const { Pool } = require('pg');
 const redis = require('redis');
 var elasticsearch = require('elasticsearch');
 const envProps = require('./local_env_props');
+const cors = require('cors');
 
 // Initializing the Express Framework /////////////////////////////////////////////////////
 const app = express();
 const port = 3000;
+app.use(cors())
 app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
