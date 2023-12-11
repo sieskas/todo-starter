@@ -14,5 +14,6 @@ npm start
 ```bash
 cd todo-react-view
 npm install
+npm run dev
 
 ```
