@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 4200
 
-RUN npm run dev
+CMD ["npm", "run", "dev"]
