@@ -26,6 +26,8 @@ const postgresClient = new Pool({
     idleTimeoutMillis: 30000        // Connection timeout 30 seconds
 });
 
+console.log("Postgres Client:", postgresClient);
+
 // Redis Client Setup /////////////////////////////////////////////////////
 const redisClient = redis.createClient({
     host: envProps.redisHost,
@@ -208,7 +210,21 @@ app.route('/api/v1/search').post(async (req, res) => {
         });
 });
 
+// Function to test PostgreSQL connection
+function testPostgresConnection() {
+    console.log("--Method testPostgresConnection");
+    postgresClient.query('SELECT 1', (err, res) => {
+        if (err) {
+            console.error('Failed to connect to PostgreSQL:', err);
+        } else {
+            console.log('Successfully connected to PostgreSQL');
+        }
+    });
+}
+
 // Start the server /////////////////////////////////////////////////////
 app.listen(port, () => {
     console.log('Todo API Server started!');
+    console.log("Postgres Client at Startup:", postgresClient);
+    testPostgresConnection(); // Test the connection when the server starts
 });
