@@ -1,4 +1,4 @@
-FROM postgres:11.2
+FROM postgres:16.1
 
 ENV POSTGRES_USER todo
 ENV POSTGRES_PASSWORD todo1234
