@@ -35,7 +35,7 @@ services:
       context: ./todo-api
       dockerfile: Dockerfile
     image: todo-api:1.0
-    command: sh app/start.sh
+    command: sh start.sh
     ports:
       - "3000:3000"
     environment:
