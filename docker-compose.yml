@@ -54,7 +54,7 @@ services:
     ports:
       - "4200:4200"
     volumes:
-      - ${PWD}/todo-view:/usr/src/app
+      - ${PWD}/todo-react-view:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - todo-api
