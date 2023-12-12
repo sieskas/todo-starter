@@ -9,7 +9,10 @@ services:
 
   todo-postgres:
     container_name: todo-postgres
-    image: postgres:11.2
+    build:
+      context: ./todo-postgres
+      dockerfile: Dockerfile
+    image: todo-postgres:1.0
     ports:
       - "5432:5432"
     environment:
@@ -28,7 +31,11 @@ services:
 
   todo-api:
     container_name: todo-api
+    build:
+      context: ./todo-api
+      dockerfile: Dockerfile
     image: todo-api:1.0
+    command: sh app/start.sh
     ports:
       - "3000:3000"
     environment:
@@ -50,6 +57,9 @@ services:
 
   todo-view:
     container_name: todo-view
+    build:
+      context: ./todo-react-view
+      dockerfile: Dockerfile
     image: todo-view:1.0
     ports:
       - "4200:4200"
@@ -61,6 +71,9 @@ services:
 
   todo-proxy:
     container_name: todo-proxy
+    build:
+        context: ./todo-proxy
+        dockerfile: Dockerfile
     image: todo-proxy:1.0
     ports:
       - "8080:90"
