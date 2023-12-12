@@ -211,7 +211,7 @@ app.route('/api/v1/search').post(async (req, res) => {
 });
 
 // Function to test PostgreSQL connection
-function testPostgresConnection() {
+async function testPostgresConnection() {
     console.log("--Method testPostgresConnection");
     postgresClient.query('SELECT 1', (err, res) => {
         if (err) {
@@ -220,6 +220,14 @@ function testPostgresConnection() {
             console.log('Successfully connected to PostgreSQL');
         }
     });
+
+    try {
+        const result = await postgresClient.query('SELECT 1');
+        console.log('Successfully connected to PostgreSQL', result);
+    } catch (err) {
+        console.error('Failed to connect to PostgreSQL:', err);
+    }
+
 }
 
 // Start the server /////////////////////////////////////////////////////
